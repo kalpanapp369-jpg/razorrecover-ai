@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F4F6F8;
+    color: #0C2651;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'tnum' 1;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.015em;
+    color: #0C2651;
+  }
+
+  code, pre, kbd, samp {
+    font-family: 'IBM Plex Mono', Consolas, Menlo, Monaco, monospace;
+  }
+
+  /* 4px consistent radius baseline */
+  *, ::before, ::after {
+    border-radius: inherit;
+  }
+}
+
+/* Engineered Razorpay Blade Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F6F8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0D94FB;
+}
+
+/* RazorSense Motion Utilities */
+@layer components {
+  /* RazorSense Tactile Button */
+  .razorsense-btn {
+    @apply transition-all duration-150 ease-out active:scale-[0.98] hover:scale-[1.02] cursor-pointer inline-flex items-center justify-center font-medium;
+  }
+
+  /* Primary Dodger Blue Action Button */
+  .blade-btn-primary {
+    @apply razorsense-btn bg-[#0D94FB] hover:bg-[#0B82DE] text-white px-3.5 py-1.5 text-xs font-semibold rounded-[4px] shadow-sm;
+  }
+
+  /* Secondary Outline Button */
+  .blade-btn-secondary {
+    @apply razorsense-btn bg-white hover:bg-slate-50 text-[#0C2651] border border-slate-200 px-3.5 py-1.5 text-xs font-semibold rounded-[4px] shadow-2xs;
+  }
+
+  /* Navy Institutional Button */
+  .blade-btn-navy {
+    @apply razorsense-btn bg-[#0C2651] hover:bg-[#081C3D] text-white px-3.5 py-1.5 text-xs font-semibold rounded-[4px] shadow-sm;
+  }
+
+  /* RazorSense Interactive Card with Soft Elevation */
+  .blade-card {
+    @apply bg-white border border-slate-200 rounded-[4px] transition-all duration-150 ease-out hover:border-slate-300 hover:shadow-blade-sm;
+  }
+
+  /* RazorSense Input with Dodger Blue ring */
+  .blade-input {
+    @apply rounded-[4px] border border-slate-200 bg-white px-3 py-1.5 text-xs text-slate-800 placeholder-slate-400 outline-none transition-all duration-120 focus:border-[#0D94FB] focus:ring-2 focus:ring-[#0D94FB]/20;
+  }
+
+  /* Shimmer / Pulse for AI & Telemetry */
+  .blade-pulse {
+    @apply animate-pulse duration-1000;
+  }
+
+  /* Interactive Hover Card with Blade Soft Elevation & Border Glow */
+  .blade-hover-card {
+    @apply transition-all duration-200 ease-out hover:-translate-y-0.5 hover:shadow-blade-hover hover:border-[#0D94FB]/30 cursor-pointer;
+  }
+
+  /* Shimmer sweep effect on card hover */
+  .blade-shimmer-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .blade-shimmer-sweep::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0,
+      rgba(13, 148, 251, 0.04) 20%,
+      rgba(13, 148, 251, 0.08) 60%,
+      rgba(255, 255, 255, 0)
+    );
+    transition: transform 0.6s ease-in-out;
+    pointer-events: none;
+  }
+  .blade-shimmer-sweep:hover::after {
+    transform: translateX(100%);
+  }
+}
+
+/* Animations */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Infinite Auto-Scrolling Showcase Marquee */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 36s linear infinite;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+

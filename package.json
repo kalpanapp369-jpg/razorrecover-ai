@@ -1,0 +1,25 @@
+{
+  "name": "razorrecover-ai",
+  "version": "1.0.0",
+  "description": "RazorRecover AI - Detect revenue leakage. Diagnose the cause. Recover it intelligently.",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix server && npm run build --prefix client",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "razorpay",
+    "revenue-recovery",
+    "fintech",
+    "ai",
+    "saas"
+  ],
+  "author": "",
+  "license": "ISC"
+}
